@@ -1,7 +1,5 @@
 import type { Config } from 'tailwindcss'
-// module.exports = {
-//   darkMode: 'class',
-// }
+
 const config: Config = {
   darkMode: 'class',
   content: [
@@ -19,6 +17,7 @@ const config: Config = {
       colors: {
         btnContent: 'rgb(var(--color-btnContent) / <alpha-value>)',
         btnBackground: 'rgb(var(--color-btnBackground) / <alpha-value>)',
+        dark: 'rgb(17,17,17)',
       },
     },
   },

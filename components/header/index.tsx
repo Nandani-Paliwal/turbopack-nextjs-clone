@@ -1,10 +1,10 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-
 import { useState } from "react";
+
 import { Dialog, Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
@@ -14,16 +14,18 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
 
+
   //   handle change function
-  const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
-  }
+  };
 
   return (
-    <header className="flex flex-col justify-center items-center w-full sticky top-0 z-50 overflow-x-hidden">
-      <div className="w-full h-full shadow-inner -z-50 ">
+    <header>
+      <div className="flex flex-col justify-center items-center w-full sticky top-0 z-20 overflow-x-hidden">
+        <div className="nextra-nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:shadow-[0_0_0_1px_#000] contrast-more:dark:shadow-[0_0_0_1px_#fff]"></div>
         <nav
-          className="flex items-center justify-end  max-w-[90rem] px-6 gap-2 h-16 mx-auto "
+          className="flex items-center justify-end w-full  max-w-[90rem] px-6 gap-2 h-16 mx-auto"
           aria-label="Global"
         >
           <div className="flex items-center mr-auto ">
@@ -51,14 +53,13 @@ export default function Header() {
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               viewBox="0 0 24 24"
               className="dark:text-[#333] text-[#eaeaea] ml-2 mr-1"
             >
               <path d="M16.88 3.549L7.12 20.451"></path>
             </svg>
             <Link href="" className="hover:opacity-75">
-              {/* <Image src="/utils/turborepo.svg" alt="turborepo" height={32} width={120} /> */}
               <svg
                 className=""
                 width="120"
@@ -77,14 +78,14 @@ export default function Header() {
                     y2="15.3847"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#0096FF"></stop>
-                    <stop offset="1" stop-color="#FF1E56"></stop>
+                    <stop stopColor="#0096FF"></stop>
+                    <stop offset="1" stopColor="#FF1E56"></stop>
                   </linearGradient>
                   <linearGradient id="gradient">
-                    <stop offset="0%" stop-color="#000000"></stop>
-                    <stop offset="25%" stop-color="#ffffff"></stop>
-                    <stop offset="85%" stop-color="#ffffff"></stop>
-                    <stop offset="100%" stop-color="#000000"></stop>
+                    <stop offset="0%" stopColor="#000000"></stop>
+                    <stop offset="25%" stopColor="#ffffff"></stop>
+                    <stop offset="85%" stopColor="#ffffff"></stop>
+                    <stop offset="100%" stopColor="#000000"></stop>
                   </linearGradient>
                   <mask id="logo-mask">
                     <rect
@@ -99,7 +100,7 @@ export default function Header() {
                 </defs>
                 <g mask="url(#logo-mask)" transform="translate(8,0)">
                   <g
-                    className="z-0 relative"
+                    className="z-0 relative "
                     opacity="1"
                     transform-origin="13.5600004196167px 13.5600004196167px"
                     // style="transform: none; transform-origin: 13.56px 13.56px;"
@@ -120,7 +121,7 @@ export default function Header() {
                   </g>
                 </g>
                 <g
-                  className="z-10 relative header-logo_desktopLogo__zIjld"
+                  className="z-10 relative header-logo_desktopLogo__zIjld hidden md:flex"
                   transform="translate(8,0)"
                 >
                   <path
@@ -166,115 +167,161 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <Popover.Group className=" desktop-navItems flex gap-x-3">
+          <Popover.Group className="hidden md:flex desktop-navItems gap-x-5">
             <Link
               href="#"
-              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer  hidden md:inline-block"
+              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer"
             >
               Docs
             </Link>
             <Link
               href="#"
-              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer  hidden md:inline-block"
+              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer "
             >
               Blogs
             </Link>
             <Link
               href="#"
-              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer  hidden md:inline-block"
+              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer "
             >
               Showcase
             </Link>
             <Link
               href="#"
-              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer hidden md:inline-block  "
+              className="text-sm py-2 contrast-more:text-gray-700 text-gray-600  hover:text-gray-800 contrast-more:dark:text-gray-100 dark:text-gray-400   dark:hover:text-gray-200 cursor-pointer  "
             >
               Enterprise
             </Link>
-            <div className="hidden md:inline-block md:w-64 min-w-[200px] relative">
-            <div className="relative flex items-center text-gray-900 contrast-more:text-gray-800 dark:text-gray-300  contrast-more:dark:text-gray-300">
-              <input
-                placeholder="Search documentation..."
-                type="search"
-                value={searchInput}
-                className="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-[hsla(0,0%,7%,.5)] placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
-                onChange={handleChange}
-              />
-              <kbd className="absolute my-1.5 select-none right-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] text-medium text-gray-500 border dark:border-gray-100/20 dark:bg-[hsla(0,0%,7%,.5)] contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100">CTRL K</kbd>
-            </div>
-          </div>
-          </Popover.Group>
-          <Link href="" className="hidden p-2 text-current sm:flex hover:opacity-75">
-          <svg width="24" height="24" fill="currentColor" viewBox="3 3 18 18"><title>GitHub</title><path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path></svg>
-          </Link>
-          <Link href="" className="hidden p-2 text-current sm:flex hover:opacity-75">
-          <svg width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 5 30.67 23.25"><title>Discord</title><path d="M26.0015 6.9529C24.0021 6.03845 21.8787 5.37198 19.6623 5C19.3833 5.48048 19.0733 6.13144 18.8563 6.64292C16.4989 6.30193 14.1585 6.30193 11.8336 6.64292C11.6166 6.13144 11.2911 5.48048 11.0276 5C8.79575 5.37198 6.67235 6.03845 4.6869 6.9529C0.672601 12.8736 -0.41235 18.6548 0.130124 24.3585C2.79599 26.2959 5.36889 27.4739 7.89682 28.2489C8.51679 27.4119 9.07477 26.5129 9.55525 25.5675C8.64079 25.2265 7.77283 24.808 6.93587 24.312C7.15286 24.1571 7.36986 23.9866 7.57135 23.8161C12.6241 26.1255 18.0969 26.1255 23.0876 23.8161C23.3046 23.9866 23.5061 24.1571 23.7231 24.312C22.8861 24.808 22.0182 25.2265 21.1037 25.5675C21.5842 26.5129 22.1422 27.4119 22.7621 28.2489C25.2885 27.4739 27.8769 26.2959 30.5288 24.3585C31.1952 17.7559 29.4733 12.0212 26.0015 6.9529ZM10.2527 20.8402C8.73376 20.8402 7.49382 19.4608 7.49382 17.7714C7.49382 16.082 8.70276 14.7025 10.2527 14.7025C11.7871 14.7025 13.0425 16.082 13.0115 17.7714C13.0115 19.4608 11.7871 20.8402 10.2527 20.8402ZM20.4373 20.8402C18.9183 20.8402 17.6768 19.4608 17.6768 17.7714C17.6768 16.082 18.8873 14.7025 20.4373 14.7025C21.9717 14.7025 23.2271 16.082 23.1961 17.7714C23.1961 19.4608 21.9872 20.8402 20.4373 20.8402Z"></path></svg>
-          </Link>
-         
-         
-        </nav>
-        {/* mobile view */}
-        <Dialog
-          as="div"
-          className="lg:hidden"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        >
-          <div className="fixed flex flex-col justify-between inset-0 z-10" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <Link href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Nextjs </span>
-                <Image
-                  className="h-8 w-auto"
-                  src="/next.svg"
-                  alt=""
-                  height={100}
-                  width={100}
+            <div className=" md:w-64 min-w-[200px] relative">
+              <div className="relative flex items-center text-gray-900 contrast-more:text-gray-800 dark:text-gray-300  contrast-more:dark:text-gray-300">
+                <input
+                  id="search"
+                  name="search"
+                  placeholder="Search documentation..."
+                  type="search"
+                  value={searchInput}
+                  className="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-[hsla(0,0%,7%,.5)] placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
+                  onChange={handleChange}
                 />
-              </Link>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
+                <kbd className="absolute my-1.5 select-none right-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] text-medium text-gray-500 border dark:border-gray-100/20 dark:bg-[hsla(0,0%,7%,.5)] contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100">
+                  CTRL K
+                </kbd>
+              </div>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  <Link
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray hover:text-black"
-                  >
-                    Docs
-                  </Link>
-                  <Link
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray hover:text-black"
-                  >
-                    Blogs
-                  </Link>
-                  <Link
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray hover:text-black"
-                  >
-                    Showcase
-                  </Link>
-                  <Link
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray hover:text-black"
-                  >
-                    Enterprise
-                  </Link>
+          </Popover.Group>
+          <Link
+            href=""
+            className="hidden p-2 text-current sm:flex hover:opacity-75"
+          >
+            <svg width="24" height="24" fill="currentColor" viewBox="3 3 18 18">
+              <title>GitHub</title>
+              <path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path>
+            </svg>
+          </Link>
+          <Link
+            href=""
+            className="hidden p-2 text-current sm:flex hover:opacity-75"
+          >
+            <svg
+              width="24"
+              height="24"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 5 30.67 23.25"
+            >
+              <title>Discord</title>
+              <path d="M26.0015 6.9529C24.0021 6.03845 21.8787 5.37198 19.6623 5C19.3833 5.48048 19.0733 6.13144 18.8563 6.64292C16.4989 6.30193 14.1585 6.30193 11.8336 6.64292C11.6166 6.13144 11.2911 5.48048 11.0276 5C8.79575 5.37198 6.67235 6.03845 4.6869 6.9529C0.672601 12.8736 -0.41235 18.6548 0.130124 24.3585C2.79599 26.2959 5.36889 27.4739 7.89682 28.2489C8.51679 27.4119 9.07477 26.5129 9.55525 25.5675C8.64079 25.2265 7.77283 24.808 6.93587 24.312C7.15286 24.1571 7.36986 23.9866 7.57135 23.8161C12.6241 26.1255 18.0969 26.1255 23.0876 23.8161C23.3046 23.9866 23.5061 24.1571 23.7231 24.312C22.8861 24.808 22.0182 25.2265 21.1037 25.5675C21.5842 26.5129 22.1422 27.4119 22.7621 28.2489C25.2885 27.4739 27.8769 26.2959 30.5288 24.3585C31.1952 17.7559 29.4733 12.0212 26.0015 6.9529ZM10.2527 20.8402C8.73376 20.8402 7.49382 19.4608 7.49382 17.7714C7.49382 16.082 8.70276 14.7025 10.2527 14.7025C11.7871 14.7025 13.0425 16.082 13.0115 17.7714C13.0115 19.4608 11.7871 20.8402 10.2527 20.8402ZM20.4373 20.8402C18.9183 20.8402 17.6768 19.4608 17.6768 17.7714C17.6768 16.082 18.8873 14.7025 20.4373 14.7025C21.9717 14.7025 23.2271 16.082 23.1961 17.7714C23.1961 19.4608 21.9872 20.8402 20.4373 20.8402Z"></path>
+            </svg>
+          </Link>
+          <button
+            type="button"
+            aria-label="Menu"
+            className="nextra-hamburger -mr-2 rounded p-2 active:bg-gray-400/20 md:hidden"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <svg
+              fill="none"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="open"
+            >
+              <g>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16"
+                ></path>
+              </g>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 12h16"
+              ></path>
+              <g>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 18h16"
+                ></path>
+              </g>
+            </svg>
+          </button>
+          {/* <div className="mobile-menu flex md:hidden">
+            <button
+              type="button"
+              className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 ${
+                mobileMenuOpen === false ? "inline-flex" : "hidden"
+              }`}
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div> */}
+        </nav>
+      </div>
+      {/* mobile view */}
+      <div className={` mx-auto flex ${mobileMenuOpen ? "flex" : "hidden"}`}>
+        <div className="overflow-x-hidden">
+          <aside className="flex flex-col z-40 w-screen overflow-y-auto py-6  motion-reduce:transform-none transform-gpu transition-all ease-in-out  max-md:[transform:translate3d(0,0,0)] md:hidden ">
+            <div className="p-4 md:hidden ">
+              <div className="relative md:w-64">
+                <div className="relative flex items-center text-gray-900 contrast-more:text-gray-800 dark:text-gray-300  contrast-more:dark:text-gray-300">
+                  <input
+                    id="mobileSearch"
+                    name="mobileSearch"
+                    placeholder="Search documentation..."
+                    type="search"
+                    value={searchInput}
+                    className="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-[hsla(0,0%,7%,.5)] placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
+                    onChange={handleChange}
+                  />
+                  <kbd className="absolute my-1.5 select-none right-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] text-medium text-gray-500 border dark:border-gray-100/20 dark:bg-[hsla(0,0%,7%,.5)] contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100">
+                    CTRL K
+                  </kbd>
                 </div>
               </div>
             </div>
-          </Dialog.Panel>
-        </Dialog>
+            <div className="overflow-y-auto overflow-x-hidden p-4 grow md:h-screen"></div>
+            <div className="sticky bottom-0 bg-white dark:bg-dark mx-4 py-4 shadow-[0_-12px_16px_#fff] flex items-center gap-2 dark:border-neutral-800 dark:shadow-[0_-12px_16px_#111] contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:shadow-none border-t">
+              <div className="grow flex flex-col">
+               <ThemeSwitcher />
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
+      {/* <Dialog
+          as="div"
+          className="md:hidden bg-pink-400"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        ></Dialog> */}
     </header>
   );
 }
