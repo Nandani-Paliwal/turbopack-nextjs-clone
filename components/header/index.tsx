@@ -286,7 +286,7 @@ export default function Header() {
         </nav>
       </div>
       {/* mobile view */}
-      <div className={` mx-auto flex ${mobileMenuOpen ? "flex" : "hidden"}`}>
+      <div className={` mx-auto flex animate-slideInDown ${mobileMenuOpen ? "flex" : "hidden"}`}>
         <div className="overflow-x-hidden">
           <aside className="flex flex-col z-40 w-screen overflow-y-auto py-6  motion-reduce:transform-none transform-gpu transition-all ease-in-out  max-md:[transform:translate3d(0,0,0)] md:hidden ">
             <div className="p-4 md:hidden ">
