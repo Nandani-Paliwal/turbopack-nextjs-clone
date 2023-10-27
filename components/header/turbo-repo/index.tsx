@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 
-import { Dialog, Popover, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import { Dialog, Popover, } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import ThemeSwitcher from "../ThemeSwitcher";
+import ThemeSwitcher from "../../ThemeSwitcher";
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
@@ -100,22 +100,21 @@ export default function Header() {
                 </defs>
                 <g mask="url(#logo-mask)" transform="translate(8,0)">
                   <g
-                    className="z-0 relative "
+                    className="z-0 relative"
                     opacity="1"
-                    transform-origin="13.5600004196167px 13.5600004196167px"
-                    // style="transform: none; transform-origin: 13.56px 13.56px;"
+                    data-projection-id="727"
+                    transform-origin="13.948790550231934px 13.939799308776855px"
                     transform="none"
+                    // style="transform: none; transform-origin: 13.9488px 13.9398px;"
                   >
                     <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M10.9443 10.4846C10.6829 10.4846 10.4709 10.6966 10.4709 10.958V16.2234C10.4709 16.4849 10.6829 16.6968 10.9443 16.6968H16.2097C16.4712 16.6968 16.6831 16.4849 16.6831 16.2234V10.958C16.6831 10.6966 16.4712 10.4846 16.2097 10.4846H10.9443ZM7.14628 6.72631C6.90676 6.72631 6.71263 6.92045 6.71263 7.15994V20.0215C6.71263 20.261 6.90676 20.4551 7.14628 20.4551H20.0078C20.2473 20.4551 20.4414 20.261 20.4414 20.0215V7.15994C20.4414 6.92045 20.2473 6.72631 20.0078 6.72631H7.14628Z"
+                      d="M13.9396 6.42181C9.79423 6.42181 6.42163 9.79441 6.42163 13.9398C6.42163 18.0852 9.79423 21.4578 13.9396 21.4578C18.085 21.4578 21.4576 18.0852 21.4576 13.9398C21.4576 9.79441 18.085 6.42181 13.9396 6.42181ZM13.9396 17.8304C11.7906 17.8304 10.049 16.0888 10.049 13.9398C10.049 11.7908 11.7906 10.0492 13.9396 10.0492C16.0886 10.0492 17.8302 11.7908 17.8302 13.9398C17.8302 16.0888 16.0886 17.8304 13.9396 17.8304Z"
                       className="dark:fill-white fill-black"
                     ></path>
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
-                      d="M2 13.8059V22.1684C2 22.7295 2.15656 23.254 2.42838 23.7007L5.44339 20.6857V13.8059H2ZM3.37481 24.664L6.36423 21.6745C6.38505 21.6758 6.40605 21.6765 6.42723 21.6765H13.0144V25.12H4.95147C4.37169 25.12 3.83094 24.9528 3.37481 24.664ZM14.3648 25.12H22.1684C23.7985 25.12 25.12 23.7985 25.12 22.1684V4.95147C25.12 3.32142 23.7985 2 22.1684 2H13.8059V5.44339H20.6927C21.236 5.44339 21.6765 5.88386 21.6765 6.42723V20.6927C21.6765 21.2361 21.236 21.6765 20.6927 21.6765H14.3648V25.12Z"
+                      d="M14.5697 5.187V2.38C20.6709 2.7062 25.5177 7.7574 25.5177 13.9398C25.5177 20.1222 20.6709 25.172 14.5697 25.4996V22.6926C19.1169 22.3678 22.7177 18.5682 22.7177 13.9398C22.7177 9.3114 19.1169 5.5118 14.5697 5.187ZM7.30928 19.6798C6.10388 18.2882 5.32688 16.5158 5.18828 14.5698H2.37988C2.52548 17.2928 3.61468 19.7638 5.32128 21.6664L7.30788 19.6798H7.30928ZM13.3097 25.4996V22.6926C11.3623 22.554 9.5899 21.7784 8.1983 20.5716L6.2117 22.5582C8.1157 24.2662 10.5867 25.354 13.3083 25.4996H13.3097Z"
                       fill="url(#logo-ring-gradient)"
                     ></path>
                   </g>
@@ -149,17 +148,18 @@ export default function Header() {
             </Link>
             <div className="header-logo_siteSwitcher absolute left-[50%] transform translate-x-[-50%]">
               <div className="flex relative items-center justify-between p-2 text-xl">
-                <span className="flex h-[34px] w-[100px] flex-shrink-0 items-center rounded-[8px] border border-[#dedfde] dark:border-[#333333] p-1 duration-300 ease-in-out after:h-[24px] after:w-[44px] after:rounded-md dark:after:bg-[#333333] after:shadow-sm after:duration-300 after:border dark:after:border-[#333333] after:border-[#666666]/100 after:bg-gradient-to-b after:from-[#3286F1] after:to-[#C33AC3] after:opacity-20 dark:after:opacity-100 dark:after:bg-none indeterminate:after:hidden after:translate-x-[46px]"></span>
+              <span className="flex h-[34px] w-[100px] flex-shrink-0 items-center rounded-[8px] border border-[#dedfde] dark:border-[#333333] p-1 delay-150 duration-300 ease-in-out after:h-[24px] after:w-[44px] after:rounded-md dark:after:bg-[#333333] after:shadow-sm after:duration-300 after:border dark:after:border-[#333333] after:border-[#666666]/100 after:bg-gradient-to-b after:from-[#3286F1] after:to-[#C33AC3] after:opacity-20 dark:after:opacity-100 dark:after:bg-none indeterminate:after:hidden"></span>
                 <span className="z-50 absolute p-1 text-sm flex justify-between text-center w-[100px] text-[#666666] dark:text-[#888888] hover:text-black dark:hover:text-white">
                   <Link
                     href="/repo"
-                    className="py-1 transition-colors duration-300 inline-block w-[50px] cursor-pointer hover:text-black dark:hover:text-white"
+                    className="py-1 transition-colors duration-300 inline-block w-[50px] cursor-pointer hover:text-black dark:hover:text-white text-black dark:text-white"
                   >
                     Repo
                   </Link>
                   <Link
-                    href="/pack"
-                    className="py-1 transition-colors duration-300 inline-block w-[50px] cursor-pointer hover:text-black dark:hover:text-white text-black dark:text-white"
+                    href="/"
+                    className="py-1 transition-colors duration-300 inline-block w-[50px] cursor-pointer hover:text-black dark:hover:text-white"
+                    
                   >
                     Pack
                   </Link>
@@ -237,56 +237,25 @@ export default function Header() {
             type="button"
             aria-label="Menu"
             className="nextra-hamburger -mr-2 rounded p-2 active:bg-gray-400/20 md:hidden"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <svg
-              fill="none"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="open"
-            >
-              <g>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16"
-                ></path>
-              </g>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 12h16"
-              ></path>
-              <g>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 18h16"
-                ></path>
-              </g>
-            </svg>
+            <div className="menu-btn relative flex flex-col gap-1 justify-center items-center w-10 h-20 cursor-pointer transition-all duration-500 ease-in-out">
+              <div className={`menu-btn_burger w-[18px] h-[2px] bg-black dark:bg-white rounded shadow-md transition-all duration-500 ease-in-out ${mobileMenuOpen ? 'transform rotate-45 translate-y-[2px]' : ''}`}></div>
+              <div className={`menu-btn_burger w-[18px] h-[2px] bg-black dark:bg-white rounded shadow-md transition-all duration-500 ease-in-out  ${mobileMenuOpen ? 'hidden' : ''}` }></div>
+              <div className={`menu-btn_burger w-[18px] h-[2px] bg-black dark:bg-white rounded shadow-md transition-all duration-500 ease-in-out ${mobileMenuOpen ? 'transform -rotate-45 -translate-y-1 ' : ''}`}></div>
+
+            </div>
           </button>
-          {/* <div className="mobile-menu flex md:hidden">
-            <button
-              type="button"
-              className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 ${
-                mobileMenuOpen === false ? "inline-flex" : "hidden"
-              }`}
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div> */}
         </nav>
       </div>
       {/* mobile view */}
-      <div className={` mx-auto flex animate-slideInDown ${mobileMenuOpen ? "flex" : "hidden"}`}>
+      <div
+        className={` mx-auto  ${
+          mobileMenuOpen
+            ? "flex  animate-slideInDown"
+            : "hidden  animate-slideInUp "
+        }`}
+      >
         <div className="overflow-x-hidden">
           <aside className="flex flex-col z-40 w-screen overflow-y-auto py-6  motion-reduce:transform-none transform-gpu transition-all ease-in-out  max-md:[transform:translate3d(0,0,0)] md:hidden ">
             <div className="p-4 md:hidden ">
@@ -310,7 +279,7 @@ export default function Header() {
             <div className="overflow-y-auto overflow-x-hidden p-4 grow md:h-screen"></div>
             <div className="sticky bottom-0 bg-white dark:bg-dark mx-4 py-4 shadow-[0_-12px_16px_#fff] flex items-center gap-2 dark:border-neutral-800 dark:shadow-[0_-12px_16px_#111] contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:shadow-none border-t">
               <div className="grow flex flex-col">
-               <ThemeSwitcher />
+                <ThemeSwitcher />
               </div>
             </div>
           </aside>

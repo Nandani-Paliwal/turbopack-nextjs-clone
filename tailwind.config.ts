@@ -21,6 +21,7 @@ const config: Config = {
       },
       animation: {
         slideInDown: "slideInDown 0.5s",
+        slideInUp: "slideInUp 0.5s ",
       },
       keyframes: {
         slideInDown: {
@@ -32,6 +33,19 @@ const config: Config = {
           to: {
             "-webkit-transform": "translate3d(0, 0, 0)",
             transform: "translate3d(0, 0, 0)",
+          },
+        },
+        slideInUp: {
+          from: {
+            '-webkit-transform': 'translate3d(0, 0, 0)',
+            transform: 'translate3d(0, 50%, 0)',
+            visibility: 'visible',
+
+          },
+          to: {
+            '-webkit-transform': 'translate3d(0, 0, 0)',
+            transform: 'translate3d(0, 0, 0)',
+          
           },
         },
       },
