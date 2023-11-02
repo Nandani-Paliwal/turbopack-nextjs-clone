@@ -270,7 +270,7 @@ export default function Header() {
                     className="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-[hsla(0,0%,7%,.5)] placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
                     onChange={handleChange}
                   />
-                  <kbd className="absolute my-1.5 select-none right-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] text-medium text-gray-500 border dark:border-gray-100/20 dark:bg-[hsla(0,0%,7%,.5)] contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100">
+                  <kbd className="absolute my-1.5 select-none right-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] text-medium text-gray-500 border dark:border-gray-100/20 dark:bg-[hsla(0,0%,7%,.5)] contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100 cursor-pointer">
                     CTRL K
                   </kbd>
                 </div>
@@ -285,12 +285,6 @@ export default function Header() {
           </aside>
         </div>
       </div>
-      {/* <Dialog
-          as="div"
-          className="md:hidden bg-pink-400"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        ></Dialog> */}
     </header>
   );
 }

@@ -2,6 +2,8 @@
 import Providers from "@/components/providers";
 import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
+import Header from "@/components/header/turbo-repo";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Index - TurboRepo",
@@ -16,8 +18,11 @@ export default function RepoLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
-        {/* {children} */}
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
