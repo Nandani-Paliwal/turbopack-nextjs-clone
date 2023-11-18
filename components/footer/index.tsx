@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "../design-system/button";
 
 const navigation = {
   resources: [
@@ -34,7 +35,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer
-      className="border-t-neutral-800 border overflow-hidden m-0"
+      className="border-t-neutral-800 border overflow-hidden m-0 bg-[#FAFAFA] dark:bg-[#111111]"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
@@ -166,12 +167,12 @@ export default function Footer() {
                 />
               </div>
               <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                <button
+                <Button
                   type="submit"
-                  className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-black border border-transparent rounded-md dark:bg-white dark:text-black sm:text-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:focus:ring-white dark:hover:bg-gray-300"
+                  className="sm:text-sm "
                 >
                   Subscribe
-                </button>
+                </Button>
               </div>
             </form>
           </div>

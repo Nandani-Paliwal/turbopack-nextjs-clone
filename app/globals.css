@@ -28,7 +28,26 @@
   left: 0;
   margin-left: 15px;
 }
-
+.gradients_glowColor {
+    background: conic-gradient(from 180deg at 50% 50%,#2a8af6 0deg,#a853ba 180deg,#e92a67 1turn);
+}
+.gradients_glowSmall{
+  filter: blur(32px);
+}
+.gradients_glow {
+  mix-blend-mode: normal;
+  filter: blur(75px);
+  will-change: filter;
+}
+.gradients_glowConic {
+  background: conic-gradient(from 180deg at 50% 50%,#2a8af6 0deg,#a853ba 180deg,#e92a67 1turn);
+}
+.gradients_translatingGlow {
+  background: linear-gradient(32deg,#2a8af6,#a853ba 50%,#e92a67);
+  background-size: 200% 200%;
+  animation: gradients_translateGlow__Vogt_ 7s linear infinite;
+  will-change: filter;
+}
 @media (min-width: 768px) {
   .header-logo_siteSwitcher {
     margin-left: 12px;

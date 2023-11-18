@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <header>
-      <div className="flex flex-col justify-center items-center w-full sticky top-0 z-20 overflow-x-hidden">
+      <div className="flex flex-col justify-center items-center w-full sticky top-0 z-50 overflow-x-hidden">
         <div className="nextra-nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:shadow-[0_0_0_1px_#000] contrast-more:dark:shadow-[0_0_0_1px_#fff]"></div>
         <nav
           className="flex items-center justify-end w-full  max-w-[90rem] px-6 gap-2 h-16 mx-auto"
